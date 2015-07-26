@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">重出江湖</div>
+                <div class="panel-body">
+                    <form novalidate action="" role="form" ng-submit="save()" name="userform">
+                        <div class="form-group row" ng-class="{'has-error':userform.username.$dirty && userform.username.$invalid}">
+                            <label for="username" class="col-sm-offset-2 col-sm-2 control-label text-right">名号</label>
+                            <div class="input-group col-sm-4">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <input type="text" id="username" name="username" ng-model="user.username" class="form-control" placeholder="请输入大名，只支持中文" ng-required ng-pattern="/[\u4e00-\u9fa5]/"/>
+                            </div>
+                            <div class="help-block col-sm-4" ng-show="userform.username.$dirty&& userform.username.$invalid">
+                                <span class="text-danger" ng-show="userform.username.$error.required">请填写名号</span>
+                                <span class="text-danger" ng-show="userform.username.$error.pattern">请填写正确的名号</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="password" class="col-sm-offset-2 col-sm-2 control-label text-right">密钥</label>
+                            <div class="input-group col-sm-4">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                                <input type="text" id="password" name="password" ng-model="user.password" class="form-control" placeholder="请输入密钥，6到12位" ng-required ng-minlength="6" ng-maxlength="12"/>
+                            </div>
+                            <div class="help-block col-sm-4" ng-show="userform.password.$dirty&& userform.password.$invalid">
+                                <span class="text-danger" ng-show="userform.password.$error.required">请填写名号</span>
+                                <span class="text-danger" ng-show="userform.password.$error.minlength">不能小于6位</span>
+                                <span class="text-danger" ng-show="userform.password.$error.maxlength">不能大于12位</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-5 col-sm-4">
+                                <button ng-disabled="userform.$dirty&& userform.$invalid"  type="submit" class="btn btn-primary btn-enter">重出江湖</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-</body>
-</html>
+            </div>
+        </div>
+    </div>
+</div>
